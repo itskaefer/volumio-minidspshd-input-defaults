@@ -14,7 +14,7 @@ if [ ! -f $INSTALLING ]; then
     pluginInputs="/volumio/app/plugins/music_service/inputs/index.js"
   	echo "Add special config for minidsp ..."
     if [ $(grep -c "input-defaults" $pluginInputs ) -eq 0 ]; then
-      sed -i "s/self.commandRouter.volumioToggle();/self.commandRouter.volumioToggle();\nthis.commandRouter.executeOnPlugin('audio_interface', 'input-defaults', 'setDefaultValues');/g" $pluginInputs
+      sed -i "s|activeInput = data;|activeInput = data;\n\n    // added by input-defaults plugin installation\n    this.commandRouter.executeOnPlugin('audio_interface', 'input-defaults', 'setDefaultValues', activeInput);\n|g" $pluginInputs
     else
       echo "Plugin inputs already updated ..."
     fi
