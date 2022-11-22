@@ -1,0 +1,75 @@
+{
+	"page": {
+		"label": "TRANSLATE.INPUTDEFAULTS.MINIDSPSHDINPUTDEFAULT"
+	},
+	"sections": [
+		{
+			"id": "section_defaults",
+			"element": "section",
+			"label": "TRANSLATE.INPUTDEFAULTS.CONFIGHEADLINE",
+			"description": "TRANSLATE.INPUTDEFAULTS.DESCRIPTION",
+			"icon": "fa-cogs",
+			"onSave": {
+				"type": "controller",
+				"endpoint": "music_service/input-defaults",
+				"method": "updateInputDefaultsConfig"
+			},
+			"saveButton": {
+				"label": "TRANSLATE.INPUTDEFAULTS.SAVE",
+				"data": [
+					"RCA-volume",
+					"RCA-preset",
+					"XLR-volume",
+					"XLR-preset",
+					"SPDIF-volume",
+					"SPDIF-preset",
+					"AES-EBU-volume",
+					"AES-EBU-preset",
+					"TOSLINK-volume",
+					"TOSLINK-preset",
+					"LAN-volume",
+					"LAN-preset"
+				]
+			},
+			"content": [
+				{
+					"id": "RCA-volume",
+					"type": "text",
+					"element": "input",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
+					"value": "70"
+				},
+				{
+					"id": "RCA-preset",
+					"type": "select",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
+					"value": {
+						"value": "1",
+						"label": "Preset 1"
+					},
+					"options": [
+					{
+						"value": "1",
+						"label": "Preset 1"
+					},
+					{
+						"value": "2",
+						"label": "Preset 2"
+					},
+					{
+						"value": "3",
+						"label": "Preset 3"
+					},
+					{
+						"value": "4",
+						"label": "Preset 4"
+					}
+					]
+				},
+				# TODO
+			]
+		}
+	]
+}

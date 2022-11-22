@@ -1,0 +1,50 @@
+{
+  "RCA-volume": {
+    "type": "string",
+    "value": "80"
+  },
+  "RCA-preset": {
+    "type": "string",
+    "value": "1"
+  },
+  "XLR-volume": {
+    "type": "string",
+    "value": "80"
+  },
+  "XLR-preset": {
+    "type": "string",
+    "value": "1"
+  },
+  "SPDIF-volume": {
+    "type": "string",
+    "value": "80"
+  },
+  "SPDIF-preset": {
+    "type": "string",
+    "value": "1"
+  },
+  "TOSLINK-volume": {
+    "type": "string",
+    "value": "80"
+  },
+  "TOSLINK-preset": {
+    "type": "string",
+    "value": "1"
+  },
+  "LAN-volume": {
+    "type": "string",
+    "value": "80"
+  },
+  "LAN-preset": {
+    "type": "string",
+    "value": "1"
+  },
+  "AES-EBU-volume": {
+    "type": "string",
+    "value": "80"
+  },
+  "AES-EBU-preset": {
+    "type": "string",
+    "value": "1"
+  }
+}
