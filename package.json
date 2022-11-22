@@ -1,5 +1,5 @@
 {
-	"name": "input-defaults",
+	"name": "minidspshd-input-defaults",
 	"version": "1.0.0",
 	"description": "Installs the input-defaults plugin to config default volume & preset on a miniDSP SHD by input",
 	"main": "index.js",

@@ -11,7 +11,7 @@
 			"icon": "fa-cogs",
 			"onSave": {
 				"type": "controller",
-				"endpoint": "music_service/input-defaults",
+				"endpoint": "audio_interface/minidspshd-input-defaults",
 				"method": "updateInputDefaultsConfig"
 			},
 			"saveButton": {
@@ -44,13 +44,9 @@
 				},
 				{
 					"id": "TOSLINK-preset",
-					"type": "select",
-					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
+					"element": "select",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
-					"value": {
-						"value": "1",
-						"label": "Preset 1"
-					},
+					"value": { "value": 1, "label": "default" },
 					"options": []
 				},
         {
@@ -63,12 +59,11 @@
 				},
 				{
 					"id": "SPDIF-preset",
-					"type": "select",
-					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
+          "element": "select",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
 					"value": {
-						"value": "1",
-						"label": "Preset 1"
+						"value": "default",
+						"label": "default"
 					},
 					"options": []
 				},
@@ -82,12 +77,11 @@
 				},
 				{
 					"id": "AES-EBU-preset",
-					"type": "select",
-					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
+          "element": "select",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
 					"value": {
-						"value": "1",
-						"label": "Preset 1"
+						"value": "default",
+						"label": "default"
 					},
 					"options": []
 				},
@@ -101,12 +95,11 @@
 				},
 				{
 					"id": "RCA-preset",
-					"type": "select",
-					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
+					"element": "select",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
 					"value": {
-						"value": "1",
-						"label": "Preset 1"
+						"value": "default",
+						"label": "default"
 					},
 					"options": []
 				},
@@ -120,12 +113,12 @@
 				},
 				{
 					"id": "XLR-preset",
-					"type": "select",
+          "element": "select",
 					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
 					"value": {
-						"value": "1",
-						"label": "Preset 1"
+						"value": "default",
+						"label": "default"
 					},
 					"options": []
 				},
@@ -139,12 +132,12 @@
 				},
 				{
 					"id": "USB-preset",
-					"type": "select",
+          "element": "select",
 					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
 					"value": {
-						"value": "1",
-						"label": "Preset 1"
+						"value": "default",
+						"label": "default"
 					},
 					"options": []
 				},
@@ -158,12 +151,12 @@
 				},
 				{
 					"id": "LAN-preset",
-					"type": "select",
+          "element": "select",
 					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
 					"value": {
-						"value": "1",
-						"label": "Preset 1"
+						"value": "default",
+						"label": "default"
 					},
 					"options": []
 				}

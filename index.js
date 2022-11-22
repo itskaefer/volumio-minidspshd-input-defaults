@@ -1,12 +1,12 @@
 'use strict';
 
 var libQ = require('kew');
-var libNet = require('net');
-var libFast = require('fast.js');
-var fs=require('fs-extra');
+//var libNet = require('net');
+//var libFast = require('fast.js');
+//var fs=require('fs-extra');
 var config = new (require('v-conf'))();
-var exec = require('child_process').exec;
-var nodetools = require('nodetools');
+//var exec = require('child_process').exec;
+//var nodetools = require('nodetools');
 
 module.exports = ControllerInputDefaults;
 
@@ -30,9 +30,10 @@ ControllerInputDefaults.prototype.onVolumioStart = function() {
 	var self = this;
 	var defer=libQ.defer();
 	self.logger.info("[input-defaults] plugin initialized");
-	var configFile=this.commandRouter.pluginManager.getConfigurationFile(this.context,'config.json');
-	this.config = new (require('v-conf'))();
-	this.config.loadFile(configFile);
+	this.configFile = this.commandRouter.pluginManager.getConfigurationFile(this.context,'config.json');
+  self.getConf(this.configFile);
+	//this.config = new (require('v-conf'))();
+	//this.config.loadFile(configFile);
 
   // var promise = libQ.nfcall(fs.writeFile, '/tmp/message', 'Hello World', 'utf8');
 
@@ -114,17 +115,28 @@ ControllerInputDefaults.prototype.getUIConfig = function() {
   {
     self.logger.info("[input-defaults] Populating UI for configuration...");
     var i = 0;
+
+    self.logger.info("[input-defaults] available inputs: " + self.inputs);
+
     for ( var input in self.inputs ) {
-      uiconf.sections[0].content[i++].value = self.config.get(input + '-volume');
+      //self.logger.info("[input-defaults] load " + i);
+      uiconf.sections[0].content[i++].value = self.config.get(self.inputs[input] + '-volume');
+
+      //self.logger.info("[input-defaults] load " + self.inputs[input]);
+      // TODO
+      //self.configManager.pushUIConfigParam(uiconf, 'sections[0].content['+ i +'].label', self.inputs[input] + ' Volume');
 
       // add preset options and show actual preset from config-file
       for ( var preset in presetList ) {
         self.configManager.pushUIConfigParam(uiconf, 'sections[0].content['+ i +'].options', {
-  				value: preset,
-  				label: 'Preset ' + preset
+  				'value': presetList[preset],
+  				'label': 'Preset ' + presetList[preset]
 			  });
       }
-      uiconf.sections[0].content[i++].value = self.config.get(input + '-preset');
+      //self.logger.info("[input-defaults] load " + i);
+      uiconf.sections[0].content[i].value.value = self.config.get(self.inputs[input] + '-preset');
+      //self.configManager.pushUIConfigParam(uiconf, 'sections[0].content['+ i +'].label', self.inputs[input] + ' Preset');
+      uiconf.sections[0].content[i++].value.label = 'Preset ' + self.config.get(self.inputs[input] + '-preset');
     }
 		self.logger.info("[input-defaults] settings loaded");
     defer.resolve(uiconf);
@@ -149,8 +161,8 @@ ControllerInputDefaults.prototype.updateInputDefaultsConfig = function(data) {
 	var defer = libQ.defer();
 
   for ( var input in self.inputs ) {
-    self.config.set(input + '-volume', data[input + '-volume']);
-    self.config.set(input + '-preset', data[input + '-preset']);
+    self.config.set(self.inputs[input] + '-volume', data[self.inputs[input] + '-volume']);
+    self.config.set(self.inputs[input] + '-preset', data[self.inputs[input] + '-preset']);
   }
  	self.logger.info("[input-defaults] Successfully updated configuration");
   return defer.promise;
