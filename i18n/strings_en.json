@@ -1,0 +1,12 @@
+{
+	"INPUTDEFAULTS":{
+	"HEADLINE":"Input-Defaults Configuration",
+	"CONFIGHEADLINE":"Configure default values",
+	"DESCRIPTION":"Set a default volume and preset for every input on your miniDSP",
+  "D_VOLUME":"Volume values from 0 - 255",
+  "L_VOLUME":"Volume",
+  "D_PRESET":"Preset value = 1 | 2 | 3 | 4",
+  "L_PRESET":"Preset",
+	"SAVE": "Save"
+	}
+}

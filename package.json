@@ -9,8 +9,8 @@
 	"author": "itskaefer",
 	"license": "GPL-3.0",
 	"volumio_info": {
-		"prettyName": "miniDSP SHD input defaults",
-		"icon": "fa fa-music",
+		"prettyName": "miniDSP SHD input-defaults",
+		"icon": "fa fa-sliders-up",
 		"plugin_type": "audio_interface",
 		"os": [
 			"buster",
@@ -20,7 +20,7 @@
 			"armhf"
 		],
 		"details": "miniDSP SHD plugin to set default volume & preset by input",
-		"changelog": "Slightly refactored client-plugin"
+		"changelog": ""
 	},
 	"engines": {
 		"node": ">=8.11.1",

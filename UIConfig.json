@@ -1,6 +1,6 @@
 {
 	"page": {
-		"label": "TRANSLATE.INPUTDEFAULTS.MINIDSPSHDINPUTDEFAULT"
+		"label": "TRANSLATE.INPUTDEFAULTS.HEADLINE"
 	},
 	"sections": [
 		{
@@ -17,22 +17,81 @@
 			"saveButton": {
 				"label": "TRANSLATE.INPUTDEFAULTS.SAVE",
 				"data": [
-					"RCA-volume",
+          "TOSLINK-volume",
+					"TOSLINK-preset",
+          "SPDIF-volume",
+					"SPDIF-preset",
+          "AES-EBU-volume",
+					"AES-EBU-preset",
+    			"RCA-volume",
 					"RCA-preset",
 					"XLR-volume",
 					"XLR-preset",
-					"SPDIF-volume",
-					"SPDIF-preset",
-					"AES-EBU-volume",
-					"AES-EBU-preset",
-					"TOSLINK-volume",
-					"TOSLINK-preset",
+          "USB-volume",
+					"USB-preset",
 					"LAN-volume",
 					"LAN-preset"
 				]
 			},
 			"content": [
 				{
+					"id": "TOSLINK-volume",
+					"type": "text",
+					"element": "input",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
+					"value": "70"
+				},
+				{
+					"id": "TOSLINK-preset",
+					"type": "select",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
+					"value": {
+						"value": "1",
+						"label": "Preset 1"
+					},
+					"options": []
+				},
+        {
+					"id": "SPDIF-volume",
+					"type": "text",
+					"element": "input",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
+					"value": "70"
+				},
+				{
+					"id": "SPDIF-preset",
+					"type": "select",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
+					"value": {
+						"value": "1",
+						"label": "Preset 1"
+					},
+					"options": []
+				},
+        {
+					"id": "AES-EBU-volume",
+					"type": "text",
+					"element": "input",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
+					"value": "70"
+				},
+				{
+					"id": "AES-EBU-preset",
+					"type": "select",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
+					"value": {
+						"value": "1",
+						"label": "Preset 1"
+					},
+					"options": []
+				},
+        {
 					"id": "RCA-volume",
 					"type": "text",
 					"element": "input",
@@ -49,26 +108,65 @@
 						"value": "1",
 						"label": "Preset 1"
 					},
-					"options": [
-					{
+					"options": []
+				},
+        {
+					"id": "XLR-volume",
+					"type": "text",
+					"element": "input",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
+					"value": "70"
+				},
+				{
+					"id": "XLR-preset",
+					"type": "select",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
+					"value": {
 						"value": "1",
 						"label": "Preset 1"
 					},
-					{
-						"value": "2",
-						"label": "Preset 2"
-					},
-					{
-						"value": "3",
-						"label": "Preset 3"
-					},
-					{
-						"value": "4",
-						"label": "Preset 4"
-					}
-					]
+					"options": []
 				},
-				# TODO
+        {
+					"id": "USB-volume",
+					"type": "text",
+					"element": "input",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
+					"value": "70"
+				},
+				{
+					"id": "USB-preset",
+					"type": "select",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
+					"value": {
+						"value": "1",
+						"label": "Preset 1"
+					},
+					"options": []
+				},
+        {
+					"id": "LAN-volume",
+					"type": "text",
+					"element": "input",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
+					"value": "70"
+				},
+				{
+					"id": "LAN-preset",
+					"type": "select",
+					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
+					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
+					"value": {
+						"value": "1",
+						"label": "Preset 1"
+					},
+					"options": []
+				}
 			]
 		}
 	]
