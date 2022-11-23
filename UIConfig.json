@@ -38,7 +38,6 @@
 					"id": "TOSLINK-volume",
 					"type": "text",
 					"element": "input",
-					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
 					"value": "70"
 				},
@@ -53,7 +52,6 @@
 					"id": "SPDIF-volume",
 					"type": "text",
 					"element": "input",
-					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
 					"value": "70"
 				},
@@ -71,7 +69,6 @@
 					"id": "AES-EBU-volume",
 					"type": "text",
 					"element": "input",
-					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
 					"value": "70"
 				},
@@ -89,7 +86,6 @@
 					"id": "RCA-volume",
 					"type": "text",
 					"element": "input",
-					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
 					"value": "70"
 				},
@@ -107,14 +103,12 @@
 					"id": "XLR-volume",
 					"type": "text",
 					"element": "input",
-					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
 					"value": "70"
 				},
 				{
 					"id": "XLR-preset",
           "element": "select",
-					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
 					"value": {
 						"value": "default",
@@ -133,7 +127,6 @@
 				{
 					"id": "USB-preset",
           "element": "select",
-					"doc": "TRANSLATE.INPUTDEFAULTS.D_PRESET",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_PRESET",
 					"value": {
 						"value": "default",
@@ -145,7 +138,6 @@
 					"id": "LAN-volume",
 					"type": "text",
 					"element": "input",
-					"doc": "TRANSLATE.INPUTDEFAULTS.D_VOLUME",
 					"label": "TRANSLATE.INPUTDEFAULTS.L_VOLUME",
 					"value": "70"
 				},

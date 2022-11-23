@@ -90,8 +90,12 @@ ControllerInputDefaults.prototype.setDefaultValues = function(input) {
 	var volume = self.config.get(input + "-volume");
 	var preset = self.config.get(input + "-preset");
 
+  // first set volume, than preset
+  self.commandRouter.volumiosetvolume.call(self.commandRouter, volume);
+
+  // TODO
+  // check if preset is already the same as we like to set
 	self.commandRouter.executeOnPlugin('music_service','inputs','setPreset', preset );
-	self.commandRouter.volumiosetvolume.call(self.commandRouter, volume);
 
 	return defer.promise;
 };
@@ -119,23 +123,21 @@ ControllerInputDefaults.prototype.getUIConfig = function() {
     self.logger.info("[input-defaults] available inputs: " + self.inputs);
 
     for ( var input in self.inputs ) {
-      //self.logger.info("[input-defaults] load " + i);
+      // set label in the UI
+      uiconf.sections[0].content[i].label = self.inputs[input] + '-Volume';
+      // set value from config
       uiconf.sections[0].content[i++].value = self.config.get(self.inputs[input] + '-volume');
-
-      //self.logger.info("[input-defaults] load " + self.inputs[input]);
-      // TODO
-      //self.configManager.pushUIConfigParam(uiconf, 'sections[0].content['+ i +'].label', self.inputs[input] + ' Volume');
 
       // add preset options and show actual preset from config-file
       for ( var preset in presetList ) {
         self.configManager.pushUIConfigParam(uiconf, 'sections[0].content['+ i +'].options', {
-  				'value': presetList[preset],
-  				'label': 'Preset ' + presetList[preset]
+  				value: presetList[preset],
+  				label: 'Preset ' + presetList[preset]
 			  });
       }
-      //self.logger.info("[input-defaults] load " + i);
       uiconf.sections[0].content[i].value.value = self.config.get(self.inputs[input] + '-preset');
-      //self.configManager.pushUIConfigParam(uiconf, 'sections[0].content['+ i +'].label', self.inputs[input] + ' Preset');
+      // set label in the UI
+      uiconf.sections[0].content[i].label = self.inputs[input] + '-Preset';
       uiconf.sections[0].content[i++].value.label = 'Preset ' + self.config.get(self.inputs[input] + '-preset');
     }
 		self.logger.info("[input-defaults] settings loaded");
@@ -162,8 +164,10 @@ ControllerInputDefaults.prototype.updateInputDefaultsConfig = function(data) {
 
   for ( var input in self.inputs ) {
     self.config.set(self.inputs[input] + '-volume', data[self.inputs[input] + '-volume']);
-    self.config.set(self.inputs[input] + '-preset', data[self.inputs[input] + '-preset']);
+    self.config.set(self.inputs[input] + '-preset', data[self.inputs[input] + '-preset'].value);
   }
  	self.logger.info("[input-defaults] Successfully updated configuration");
+  self.commandRouter.pushToastMessage('info', "Save configuration", "Successfully saved configuration");
+
   return defer.promise;
 };

@@ -13,8 +13,8 @@ if [ ! -f $INSTALLING ]; then
     pluginPath="/data/plugins/audio_interface"
     pluginInputs="/volumio/app/plugins/music_service/inputs/index.js"
   	echo "Add special config for minidsp ..."
-    if [ $(grep -c "input-defaults" $pluginInputs ) -eq 0 ]; then
-      sed -i "s|activeInput = data;|activeInput = data;\n\n    // added by input-defaults plugin installation\n    this.commandRouter.executeOnPlugin('audio_interface', 'input-defaults', 'setDefaultValues', activeInput);\n|g" $pluginInputs
+    if [ $(grep -c "minidspshd-input-defaults" $pluginInputs ) -eq 0 ]; then
+      sed -i "s|activeInput = data;|activeInput = data;\n    // added by input-defaults plugin installation\n    this.commandRouter.executeOnPlugin('audio_interface', 'minidspshd-input-defaults', 'setDefaultValues', activeInput);|g" $pluginInputs
     else
       echo "Plugin inputs already updated ..."
     fi

@@ -10,7 +10,7 @@
 	"license": "GPL-3.0",
 	"volumio_info": {
 		"prettyName": "miniDSP SHD input-defaults",
-		"icon": "fa fa-sliders-up",
+		"icon": "fa-sliders",
 		"plugin_type": "audio_interface",
 		"os": [
 			"buster",
