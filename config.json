@@ -1,7 +1,7 @@
 {
   "TOSLINK-volume": {
     "type": "string",
-    "value": "80"
+    "value": "40"
   },
   "TOSLINK-preset": {
     "type": "string",
@@ -9,7 +9,7 @@
   },
   "SPDIF-volume": {
     "type": "string",
-    "value": "80"
+    "value": "40"
   },
   "SPDIF-preset": {
     "type": "string",
@@ -17,7 +17,7 @@
   },
   "AES-EBU-volume": {
     "type": "string",
-    "value": "80"
+    "value": "40"
   },
   "AES-EBU-preset": {
     "type": "string",
@@ -25,7 +25,7 @@
   },
   "RCA-volume": {
     "type": "string",
-    "value": "80"
+    "value": "40"
   },
   "RCA-preset": {
     "type": "string",
@@ -33,7 +33,7 @@
   },
   "XLR-volume": {
     "type": "string",
-    "value": "80"
+    "value": "40"
   },
   "XLR-preset": {
     "type": "string",
@@ -41,7 +41,7 @@
   },
   "USB-volume": {
     "type": "string",
-    "value": "80"
+    "value": "40"
   },
   "USB-preset": {
     "type": "string",
@@ -49,7 +49,7 @@
   },
   "LAN-volume": {
     "type": "string",
-    "value": "80"
+    "value": "40"
   },
   "LAN-preset": {
     "type": "string",

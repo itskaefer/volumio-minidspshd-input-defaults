@@ -1,12 +1,9 @@
 'use strict';
 
 var libQ = require('kew');
-//var libNet = require('net');
-//var libFast = require('fast.js');
-//var fs=require('fs-extra');
+var fs=require('fs-extra');
 var config = new (require('v-conf'))();
 //var exec = require('child_process').exec;
-//var nodetools = require('nodetools');
 
 module.exports = ControllerInputDefaults;
 
@@ -34,8 +31,6 @@ ControllerInputDefaults.prototype.onVolumioStart = function() {
   self.getConf(this.configFile);
 	//this.config = new (require('v-conf'))();
 	//this.config.loadFile(configFile);
-
-  // var promise = libQ.nfcall(fs.writeFile, '/tmp/message', 'Hello World', 'utf8');
 
   return defer.promise;
 };
@@ -79,23 +74,41 @@ ControllerInputDefaults.prototype.onUninstall = function()
 
 // get actual choosen input from /music_service/inputs plugin
 // and set the volume and preset according to plugin settings
-ControllerInputDefaults.prototype.setDefaultValues = function(input) {
+ControllerInputDefaults.prototype.setDefaultValues = function(inputIndex) {
 	var self = this;
 	var defer = libQ.defer();
+  // source index count starts from 1
+  var inputName = self.inputs[inputIndex-1];
+
+  self.logger.info('[input-defaults] inputName ' + inputName);
 
 	var configFile=this.commandRouter.pluginManager.getConfigurationFile(this.context,'config.json');
 	this.config = new (require('v-conf'))();
 	this.config.loadFile(configFile);
 
-	var volume = self.config.get(input + "-volume");
-	var preset = self.config.get(input + "-preset");
+	var volume = self.config.get(inputName + "-volume");
+  var volumeInt = parseInt(volume);
+	var preset = self.config.get(inputName + "-preset");
+
+  if (isNaN(volumeInt)) {
+    self.logger.info('[input-defaults] couldn\'t load volume for INPUT ' + inputName);
+    return defer.promise;
+  }
 
   // first set volume, than preset
-  self.commandRouter.volumiosetvolume.call(self.commandRouter, volume);
+  self.logger.info('[input-defaults] set volume to ' + volumeInt);
+  self.commandRouter.volumiosetvolume.call(self.commandRouter, volumeInt);
 
-  // TODO
-  // check if preset is already the same as we like to set
-	self.commandRouter.executeOnPlugin('music_service','inputs','setPreset', preset );
+  self.logger.info('[input-defaults] set preset to ' + preset);
+  // update preset from inputs plugin
+  self.commandRouter.executeOnPlugin('music_service', 'inputs', 'getPreset');
+  // use added function to get the active preset
+  var activePreset = self.commandRouter.executeOnPlugin('music_service', 'inputs', 'getActivePreset');
+  if ( activePreset !== preset ) {
+    self.commandRouter.executeOnPlugin('music_service','inputs','setPreset', preset );
+  } else {
+    self.logger.info('[input-defaults] preset already set to ' + activePreset);
+  }
 
 	return defer.promise;
 };

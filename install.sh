@@ -12,9 +12,25 @@ if [ ! -f $INSTALLING ]; then
   if [ $variant = "minidspshd" ]; then
     pluginPath="/data/plugins/audio_interface"
     pluginInputs="/volumio/app/plugins/music_service/inputs/index.js"
-  	echo "Add special config for minidsp ..."
+  	echo "Add special config for minidsp inputs plugin ..."
     if [ $(grep -c "minidspshd-input-defaults" $pluginInputs ) -eq 0 ]; then
+      # enable the inputs plugin to call function from this plugin
       sed -i "s|activeInput = data;|activeInput = data;\n    // added by input-defaults plugin installation\n    this.commandRouter.executeOnPlugin('audio_interface', 'minidspshd-input-defaults', 'setDefaultValues', activeInput);|g" $pluginInputs
+
+      # correct the setting point of activeInput to our needs
+      # makes no difference for the inputs plugin
+      sed -i "/activeInput = inputid;/d" $pluginInputs
+      sed -i "s|self.setSource(inputid);|self.setSource(inputid);\n        activeInput = inputid;|g" $pluginInputs
+
+      # add function to get actual preset
+      if [ $(grep -c "inputs.prototype.getActivePreset" $pluginInputs ) -eq 0 ]; then
+        echo "" >> $pluginInputs
+        echo "// added by minidspshd-input-defaults" >> $pluginInputs
+        echo "inputs.prototype.getActivePreset = function () {" >> $pluginInputs
+        echo "  var self = this;" >> $pluginInputs
+        echo "  return activePreset;" >> $pluginInputs
+        echo "};" >> $pluginInputs
+      fi
     else
       echo "Plugin inputs already updated ..."
     fi
