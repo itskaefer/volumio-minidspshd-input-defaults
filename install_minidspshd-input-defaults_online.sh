@@ -7,7 +7,7 @@ sudo chmod 775 $pluginpath
 cd /tmp
 wget -q -O /tmp/minidspshd-input-defaults.zip $url
 miniunzip /tmp/minidspshd-input-defaults.zip -d $pluginpath
-sudo $pluginpath/install.sh
+sudo sh $pluginpath/install.sh
 
 echo "Cleanup ..."
 rm /tmp/minidspshd-input-defaults.zip
