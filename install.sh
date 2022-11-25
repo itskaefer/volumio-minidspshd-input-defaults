@@ -14,7 +14,7 @@ if [ ! -f $INSTALLING ]; then
     pluginInputs="/volumio/app/plugins/music_service/inputs/index.js"
     echo "Load corrected index.js for plugin inputs ..."
     sudo cp /volumio/app/plugins/music_service/inputs/index.js /volumio/app/plugins/music_service/inputs/index.js.bak
-    sudo wget -q -O /volumio/app/plugins/music_service/inputs/index.js https://github.com/itskaefer/volumio-minidspshd-input-defaults/plugin-inputs/index.js
+    sudo wget -q -O /volumio/app/plugins/music_service/inputs/index.js https://raw.githubusercontent.com/itskaefer/volumio-minidspshd-input-defaults/main/plugin-inputs/index.js
   	echo "Add special config for minidsp inputs plugin ..."
     if [ $(grep -c "minidspshd-input-defaults" $pluginInputs ) -eq 0 ]; then
       # enable the inputs plugin to call function from this plugin
