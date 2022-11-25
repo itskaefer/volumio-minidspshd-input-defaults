@@ -1,7 +1,7 @@
 url="https://github.com/itskaefer/volumio-minidspshd-input-defaults/raw/main/minidspshd-input-defaults.zip"
 pluginpath="/data/plugins/audio_interface/minidspshd-input-defaults"
 
-sudo mkdir $pluginpath
+sudo mkdir -p $pluginpath
 sudo chown volumiooem:volumio $pluginpath
 sudo chmod 775 $pluginpath
 cd /tmp
