@@ -6,7 +6,7 @@ sudo chown volumiooem:volumio $pluginpath
 sudo chmod 775 $pluginpath
 cd /tmp
 wget -q -O /tmp/minidspshd-input-defaults.zip $url
-miniunzip -d $pluginpath /tmp/minidspshd-input-defaults.zip
+miniunzip /tmp/minidspshd-input-defaults.zip -d $pluginpath
 sudo $pluginpath/install.sh
 
 echo "Cleanup ..."
