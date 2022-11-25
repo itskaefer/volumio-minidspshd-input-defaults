@@ -12,8 +12,8 @@ if [ ! -f $INSTALLING ]; then
   pluginInputs="/volumio/app/plugins/music_service/inputs/index.js"
 	echo "Remove special config for minidsp inputs plugin ..."
   if [ $(grep -c "minidspshd-input-defaults" $pluginInputs ) -gt 0 ]; then
-    sed -i "/\/\/ added by input-defaults plugin installation/d" $pluginInputs
-    sed -i "/this.commandRouter.executeOnPlugin('audio_interface', 'minidspshd-input-defaults', 'setDefaultValues', activeInput);/d" $pluginInputs
+    sudo sed -i "/\/\/ added by input-defaults plugin installation/d" $pluginInputs
+    sudo sed -i "/this.commandRouter.executeOnPlugin('audio_interface', 'minidspshd-input-defaults', 'setDefaultValues', activeInput);/d" $pluginInputs
   fi
 
 	rm $INSTALLING
