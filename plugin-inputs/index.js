@@ -934,7 +934,7 @@ inputs.prototype.pushMeta = function () {
         self.context.coreCommand.servicePushState(self.obj, self.obj.service);
     }
 
-}
+};
 
 inputs.prototype.listPresets = function () {
     var self = this;
@@ -990,10 +990,10 @@ inputs.prototype.streamerListener = function () {
            self.setSource(lanInputNumber);
        }
     });
-}
+};
 
 inputs.prototype.updateRoonVolume = function (deviceVolumeData) {
     var self = this;
 
     this.commandRouter.executeOnPlugin('music_service', 'raat', 'updateRoonVolume', deviceVolumeData);
-}
+};
