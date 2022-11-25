@@ -28,6 +28,7 @@ if [ ! -f $INSTALLING ]; then
       # add function to get actual preset
       if [ $(grep -c "inputs.prototype.getActivePreset" $pluginInputs ) -eq 0 ]; then
         sudo echo "" >> $pluginInputs
+        sudo echo "" >> $pluginInputs
         sudo echo "// added by minidspshd-input-defaults" >> $pluginInputs
         sudo echo "inputs.prototype.getActivePreset = function () {" >> $pluginInputs
         sudo echo "  var self = this;" >> $pluginInputs
